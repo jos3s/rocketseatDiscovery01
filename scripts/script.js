@@ -1,12 +1,7 @@
 const Modal={
-    open(){
+    toggle(){
         document
             .querySelector(".modalOverlay")
-            .classList.add("active")
-    },
-    close(){
-        document
-            .querySelector(".modalOverlay")
-            .classList.remove("active")
+            .classList.toggle("active")
     }
 }
