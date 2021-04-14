@@ -72,6 +72,9 @@ header{
 .card h3{
     font-weight: normalx;
     font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .card p{
