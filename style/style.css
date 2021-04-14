@@ -36,6 +36,45 @@ header{
     font-weight: 100;
 }
 
+#balance{
+    margin-top: -8rem;
+
+}
+
+#balance h2{
+    color:white;
+    margin-top: 0;
+}
+
+
+.card{
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: .25rem;
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    -ms-border-radius: .25rem;
+    -o-border-radius: .25rem;
+    margin-bottom: 2rem;
+    color: var(--dark-blue);
+}
+
+.card h3{
+    font-weight: normalx;
+    font-size: 1rem;
+}
+
+.card p{
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-top: 1rem;
+}
+
+.card.total{
+    background: #49aa26;
+    color: white;
+}
+
 
 footer{
     text-align: center;
