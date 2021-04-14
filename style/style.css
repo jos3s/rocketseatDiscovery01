@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+html{
+    font-size: 93.75%;
+}
+
 body{
     background-color: #f0f2f5;
     font-family: Poppins, sans-serif;
@@ -29,12 +33,29 @@ body{
     margin: auto;
 }
 
+
 h2{
     margin-top: 3.2rem;
     margin-bottom: 0.8rem;
     color: var(--dark-blue);
     font-weight: normal;
 }
+
+
+a{
+    color: #49aa26;
+    text-decoration: none;
+}
+
+a:hover{
+    color:#3dd705;
+}
+
+.button.new{
+    display: inline-block;
+    margin-bottom: .8rem;
+}
+
 
 header{
     background: #2d4a22;
@@ -46,6 +67,7 @@ header{
     color: #fff;
     font-weight: 100;
 }
+
 
 #balance{
     margin-top: -8rem;
@@ -88,6 +110,13 @@ header{
     color: white;
 }
 
+
+#transactions{
+    display: block;
+    overflow-x: auto;
+    width:100%;
+}
+
 #dataTable{
     width: 100%;
     border-spacing: 0 .5rem;
@@ -96,11 +125,20 @@ header{
 
 table thead tr th:first-child,
 table tbody tr td:first-child{
-    border-radius: .025rem  0 0 .25rem;
-    -webkit-border-radius: .025rem  0 0 .25rem;
-    -moz-border-radius: .025rem  0 0 .25rem;
-    -ms-border-radius: .025rem  0 0 .25rem;
-    -o-border-radius: .025rem  0 0 .25rem;
+    border-radius: .25rem  0 0 .25rem;
+    -webkit-border-radius: .25rem  0 0 .25rem;
+    -moz-border-radius: .25rem  0 0 .25rem;
+    -ms-border-radius: .25rem  0 0 .25rem;
+    -o-border-radius: .25rem  0 0 .25rem;
+}
+
+table thead tr th:last-child,
+table tbody tr td:last-child{
+    border-radius: 0 .25rem .25rem 0;
+    -webkit-border-radius: 0 .25rem .25rem 0;
+    -moz-border-radius: 0 .25rem .25rem 0;
+    -ms-border-radius: 0 .25rem .25rem 0;
+    -o-border-radius: 0 .25rem .25rem 0;
 }
 
 table th{
@@ -136,7 +174,22 @@ td.expense{
     color: #e92929;
 }
 
+
 footer{
     text-align: center;
     padding: 4rem 0 2rem;
+}
+
+
+@media (min-width:800px){
+    html{
+        font-size: 87.5%;
+    }
+
+
+    #balance{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 2rem;
+    }
 }
