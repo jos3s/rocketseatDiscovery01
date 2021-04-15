@@ -8,17 +8,14 @@ const Modal={
 
 const transactions=[
     {
-        id:1,
         description:"Luz",
         amount:-500,
         date:"23/01/2021"
     },{
-        id:2,
         description:"Internet",
         amount:-100,
         date:"23/01/2021"        
     },{
-        id:3,
         description:"Projeto Website",
         amount:500,
         date:"23/03/2021"
@@ -50,7 +47,6 @@ const Transaction={
     }
 }
 
-
 const DOM={
     transactionsContainer:document.querySelector("#dataTable tbody"),
     addTransaction(transaction,index){
@@ -76,10 +72,22 @@ const DOM={
             .innerHTML="R$ "+Transaction.expenses().toFixed(2).replace(".",",");
         document.getElementById("totalDisplay")
             .innerHTML="R$ "+Transaction.total().toFixed(2).replace(".",",");
+    },
+    clearTransactions(){
+        DOM.transactionsContainer.innerHTML="";
     }
 }
 
+const App={
+    init(){
+        Transaction.all.forEach(transaction => DOM.addTransaction(transaction));
+        DOM.updateBalance();
+    },
+    reload(){
+        DOM.clearTransactions();
+        App.init();
+    }
+}
 
-transactions.forEach(transaction => DOM.addTransaction(transaction));
+App.init();
 
-DOM.updateBalance();
