@@ -25,6 +25,32 @@ const transactions=[
     }
 ]
 
+const Transaction={
+    all:transactions,
+    incomes(){
+        let income=0;
+        Transaction.all.forEach(transaction => {
+            if (transaction.amount>=0){
+                income+=transaction.amount;
+            }
+        });
+        return income;
+    },
+    expenses(){
+        let expense=0;
+        Transaction.all.forEach(transaction =>{
+            if (transaction.amount<0){
+                expense+=transaction.amount;
+            }
+        });
+        return expense;
+    },
+    total(){
+        return Transaction.expenses()+ Transaction.incomes();
+    }
+}
+
+
 const DOM={
     transactionsContainer:document.querySelector("#dataTable tbody"),
     addTransaction(transaction,index){
@@ -36,13 +62,24 @@ const DOM={
         const CSSclass=transaction.amount>0 ? "income":"expense";
         const html=`
         <td class="description">${transaction.description}</td>
-        <td class="${CSSclass}">R$ ${transaction.amount}</td>
+        <td class="${CSSclass}">R$ ${Number(transaction.amount).toFixed(2).replace(".",",")}</td>
         <td class="date">${transaction.date}</td>
         <td>
             <img src="./assets/minus.svg" alt="Remover transação">
         </td>`
         return html;
+    },
+    updateBalance(){
+        document.getElementById("incomeDisplay")
+            .innerHTML="R$ "+Transaction.incomes().toFixed(2).replace(".",",");
+        document.getElementById("expanseDisplay")
+            .innerHTML="R$ "+Transaction.expenses().toFixed(2).replace(".",",");
+        document.getElementById("totalDisplay")
+            .innerHTML="R$ "+Transaction.total().toFixed(2).replace(".",",");
     }
 }
- 
+
+
 transactions.forEach(transaction => DOM.addTransaction(transaction));
+
+DOM.updateBalance();
