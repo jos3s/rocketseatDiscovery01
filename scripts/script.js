@@ -84,6 +84,56 @@ const DOM={
     }
 }
 
+const Utils={
+    formatDate(date){
+        const splittedDate=date.split("-");
+        return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
+    }   
+}
+
+const Form={
+    description:document.querySelector("input#description"),
+    amount:document.querySelector("input#amount"),
+    date:document.querySelector("input#date"),
+    getValues(){
+        return {
+            description:Form.description.value,
+            amount:Form.amount.value,
+            date:Form.date.value,
+        }
+    },
+    formatValues(){
+        let {description,amount,date}=Form.getValues();
+        date=Utils.formatDate(date);
+        amount=Number(amount);
+        return {description,amount,date};
+    },
+    validateField(){
+        const {description,amount,date}=Form.getValues();
+
+        if (description.trim()==="" || amount.trim()==="" || date.trim()==="") {
+            throw new Error("Por favor, preencha todos os campos");
+        }
+    },
+    clearFields(){
+        Form.description.value="";
+        Form.amount.value="";
+        Form.date.value="";
+    },
+    submit(event){
+        event.preventDefault();
+        try {
+            Form.validateField();
+            const transaction=Form.formatValues();
+            Transaction.add(transaction);
+            Form.clearFields();
+            Modal.toggle();
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+}
+
 const App={
     init(){
         Transaction.all.forEach(transaction => DOM.addTransaction(transaction));
