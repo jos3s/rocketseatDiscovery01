@@ -6,24 +6,22 @@ const Modal={
     }
 }
 
-const transactions=[
-    {
-        description:"Luz",
-        amount:-500,
-        date:"23/01/2021"
-    },{
-        description:"Internet",
-        amount:-100,
-        date:"23/01/2021"        
-    },{
-        description:"Projeto Website",
-        amount:500,
-        date:"23/03/2021"
-    }
-]
-
 const Transaction={
-    all:transactions,
+    all:[
+        {
+            description:"Luz",
+            amount:-500,
+            date:"23/01/2021"
+        },{
+            description:"Internet",
+            amount:-100,
+            date:"23/01/2021"        
+        },{
+            description:"Projeto Website",
+            amount:500,
+            date:"23/03/2021"
+        }
+    ],
     add(transaction){
         Transaction.all.push(transaction);
         App.reload();
