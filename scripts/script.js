@@ -6,22 +6,17 @@ const Modal={
     }
 }
 
+const Storage={
+    get(){
+        return JSON.parse(localStorage.getItem("dev.finances:transactions")) || [];
+    },
+    set(transactions){
+        localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions))
+    },
+}
+
 const Transaction={
-    all:[
-        {
-            description:"Luz",
-            amount:-500,
-            date:"23/01/2021"
-        },{
-            description:"Internet",
-            amount:-100,
-            date:"23/01/2021"        
-        },{
-            description:"Projeto Website",
-            amount:500,
-            date:"23/03/2021"
-        }
-    ],
+    all:Storage.get(),
     add(transaction){
         Transaction.all.push(transaction);
         App.reload();
@@ -135,10 +130,12 @@ const Form={
     }
 }
 
+
 const App={
     init(){
         Transaction.all.forEach(DOM.addTransaction);
         DOM.updateBalance();
+        Storage.set(Transaction.all);
     },
     reload(){
         DOM.clearTransactions();
