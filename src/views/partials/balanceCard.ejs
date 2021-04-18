@@ -1,0 +1,13 @@
+<section id="balance">
+    <h2 class="srOnly">Balanço</h2>
+    <% cards.forEach(card=>{ %>
+        <div class="card">
+            <h3>
+                <span><%= card.title %> </span>
+                <img src="<%= card.img.url %> " alt="<%= card.img.alt %> ">
+            </h3>
+            <p id="<%= card.class %> ">R$ 0,00</p>
+        </div>
+    <% }) %> 
+                
+</section>
