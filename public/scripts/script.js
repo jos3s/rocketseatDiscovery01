@@ -6,6 +6,14 @@ const Modal={
     }
 }
 
+const ModalError={
+    toggle(){
+        document
+            .querySelector(".modalError")
+            .classList.toggle("active")
+    }
+}
+
 const Storage={
     get(){
         return JSON.parse(localStorage.getItem("dev.finances:transactions")) || [];
@@ -125,7 +133,7 @@ const Form={
             Form.clearFields();
             Modal.toggle();
         } catch (error) {
-            alert(error.message);
+            ModalError.toggle();
         }
     }
 }
