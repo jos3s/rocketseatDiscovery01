@@ -78,6 +78,11 @@ button:hover{
     margin-bottom: .8rem;
 }
 
+.button.ok{
+    text-align: right;
+    width: 100%;
+}
+
 .button.cancel{
     color: var(--red);
     border: 2px var(--red) solid;
@@ -240,6 +245,9 @@ td.expense{
     max-width: 500px;
 }
 
+.modalOverlay.modalError .modal{
+    max-width: 450px;
+}
 
 #form{
     max-width: 500px;
@@ -248,6 +256,11 @@ td.expense{
 #form h2{
     margin-top: 0;
 }
+
+.form h3{
+    font-weight: normal;
+}
+
 
 input{
     border:none;
@@ -279,6 +292,11 @@ input{
     width: 48%;
 }
 
+
+.modalError .actions{
+    display:flex;
+    margin-top: .8rem;
+}
 
 footer{
     text-align: center;
