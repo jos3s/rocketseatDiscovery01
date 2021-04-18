@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <%- include("partials/head") %> 
+    <body>    
+        <header>
+           <img src="./assets/logo.svg" alt="Logo Dev Finance">
+        </header>    
+        <main class="container">
+            <section id="balance">
+                <h2 class="srOnly">Balanço</h2>
+                <div class="card">
+                    <h3 >
+                        <span>Entradas</span>
+                        <img src="./assets/income.svg" alt="Imagem de entradas">
+                    </h3>
+                    <p id="incomeDisplay">R$ 0,00</p>
+                </div>
+                <div class="card">
+                    <h3>
+                        <span>Saídas</span>
+                        <img src="./assets/expense.svg" alt="Imagem de total"></h3>
+                    <p id="expanseDisplay">R$ 0,00</p>
+                </div>
+                <div class="card total">
+                    <h3>
+                        <span>Total</span>
+                        <img src="./assets/total.svg" alt="Imagem de total"></h3>
+                    <p id="totalDisplay">R$ 0,00</p>
+                </div>              
+            </section>
+           
+            <section id="transactions">
+                <h2 class="srOnly">Transações</h2>
+                
+                <a 
+                    href="#" 
+                    onclick="Modal.toggle()"
+                    class="button new">+ Nova Transação</a>
+                
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th>Data</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <%- include("partials/modalOverlay") %>
+        <%- include("partials/footer") %>
+        <script src="./scripts/script.js"></script>
+    </body>
+</html>
